@@ -17,21 +17,22 @@ const CreatePage = () => {
     price: "",
     image: "",
   });
-  const toast = useToast()
+  const toast = useToast();
+
   const { createProduct } = useProductStore();
 
   const handleAddProduct = async () => {
     const { success, message } = await createProduct(newProduct);
-    if(!success) {
+    if (!success) {
       toast({
-        title:"Error",
+        title: "Error",
         description: message,
         status: "error",
-        isClosable: true
+        isClosable: true,
       });
     } else {
       toast({
-        title: "Success",
+        title: "Sucess",
         description: message,
         status: "success",
         isClosable: true,
@@ -41,7 +42,7 @@ const CreatePage = () => {
   };
 
   return (
-    <Container maxH={Container.sm}>
+    <Container maxW={"container.sm"}>
       <VStack spacing={8}>
         <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={8}>
           Create New Product
@@ -81,7 +82,7 @@ const CreatePage = () => {
               }
             />
 
-            <Button colorScheme="blue" onClick={handleAddProduct} w={"full"}>
+            <Button colorScheme="blue" onClick={handleAddProduct} w="full">
               Add Product
             </Button>
           </VStack>
@@ -90,4 +91,5 @@ const CreatePage = () => {
     </Container>
   );
 };
+
 export default CreatePage;

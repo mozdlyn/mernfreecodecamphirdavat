@@ -1,24 +1,25 @@
 {
-  "name": "mernfreecodecamp",
+  "name": "merncodecamp",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "start": "cross-env NODE_ENV=production node backend/server.js"
+    "prestart": "chmod +x node_modules/.bin/cross-env",
+    "start": "node_modules/.bin/cross-env NODE_ENV=production node backend/server.js"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "mongoose": "^8.5.1"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.9"
   }
 }
