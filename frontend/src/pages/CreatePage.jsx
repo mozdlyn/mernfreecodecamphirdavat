@@ -25,14 +25,14 @@ const CreatePage = () => {
     const { success, message } = await createProduct(newProduct);
     if (!success) {
       toast({
-        title: "Error",
+        title: "Hata",
         description: message,
         status: "error",
         isClosable: true,
       });
     } else {
       toast({
-        title: "Sucess",
+        title: "Başarılı",
         description: message,
         status: "success",
         isClosable: true,
@@ -45,7 +45,7 @@ const CreatePage = () => {
     <Container maxW={"container.sm"}>
       <VStack spacing={8}>
         <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={8}>
-          Create New Product
+          Yeni Ürün Oluşturun
         </Heading>
 
         <Box
@@ -57,7 +57,7 @@ const CreatePage = () => {
         >
           <VStack spacing={4}>
             <Input
-              placeholder="Product Name"
+              placeholder="Ürün Adı"
               name="name"
               value={newProduct.name}
               onChange={(e) =>
@@ -65,7 +65,7 @@ const CreatePage = () => {
               }
             />
             <Input
-              placeholder="Price"
+              placeholder="Fiyatı"
               name="price"
               type="number"
               value={newProduct.price}
@@ -74,7 +74,7 @@ const CreatePage = () => {
               }
             />
             <Input
-              placeholder="Image URL"
+              placeholder="Resim Url"
               name="image"
               value={newProduct.image}
               onChange={(e) =>
@@ -83,7 +83,7 @@ const CreatePage = () => {
             />
 
             <Button colorScheme="blue" onClick={handleAddProduct} w="full">
-              Add Product
+              Ürün Ekleyin
             </Button>
           </VStack>
         </Box>

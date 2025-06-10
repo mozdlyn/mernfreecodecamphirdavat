@@ -37,7 +37,7 @@ const ProductCard = ({ product }) => {
 		const { success, message } = await deleteProduct(pid);
 		if (!success) {
 			toast({
-				title: "Error",
+				title: "Hata",
 				description: message,
 				status: "error",
 				duration: 3000,
@@ -45,7 +45,7 @@ const ProductCard = ({ product }) => {
 			});
 		} else {
 			toast({
-				title: "Success",
+				title: "Başarılı",
 				description: message,
 				status: "success",
 				duration: 3000,
@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
 		onClose();
 		if (!success) {
 			toast({
-				title: "Error",
+				title: "Hata",
 				description: message,
 				status: "error",
 				duration: 3000,
@@ -67,8 +67,8 @@ const ProductCard = ({ product }) => {
 			});
 		} else {
 			toast({
-				title: "Success",
-				description: "Product updated successfully",
+				title: "Başarılı",
+				description: "Ürün başarıyla güncellendi",
 				status: "success",
 				duration: 3000,
 				isClosable: true,
@@ -93,7 +93,7 @@ const ProductCard = ({ product }) => {
 				</Heading>
 
 				<Text fontWeight='bold' fontSize='xl' color={textColor} mb={4}>
-					${product.price}
+					₺{product.price}
 				</Text>
 
 				<HStack spacing={2}>
@@ -110,25 +110,25 @@ const ProductCard = ({ product }) => {
 				<ModalOverlay />
 
 				<ModalContent>
-					<ModalHeader>Update Product</ModalHeader>
+					<ModalHeader>Ürünü Güncelle</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>
 						<VStack spacing={4}>
 							<Input
-								placeholder='Product Name'
+								placeholder='Ürün Adı'
 								name='name'
 								value={updatedProduct.name}
 								onChange={(e) => setUpdatedProduct({ ...updatedProduct, name: e.target.value })}
 							/>
 							<Input
-								placeholder='Price'
+								placeholder='Fiyatı'
 								name='price'
 								type='number'
 								value={updatedProduct.price}
 								onChange={(e) => setUpdatedProduct({ ...updatedProduct, price: e.target.value })}
 							/>
 							<Input
-								placeholder='Image URL'
+								placeholder='Resim Url'
 								name='image'
 								value={updatedProduct.image}
 								onChange={(e) => setUpdatedProduct({ ...updatedProduct, image: e.target.value })}
@@ -142,10 +142,10 @@ const ProductCard = ({ product }) => {
 							mr={3}
 							onClick={() => handleUpdateProduct(product._id, updatedProduct)}
 						>
-							Update
+							Güncelle
 						</Button>
 						<Button variant='ghost' onClick={onClose}>
-							Cancel
+							İptal Et
 						</Button>
 					</ModalFooter>
 				</ModalContent>
